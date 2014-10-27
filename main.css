@@ -1,0 +1,30 @@
+.container {
+	margin-top: 2%;
+}
+
+.wishlist {
+	border: 2px dashed cadetblue;
+	padding: 5%;
+	color: cadetblue;
+}
+
+.wishlist li {
+	padding: 10px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.btn {
+	margin: 5%;
+}
+
+h2 {
+	margin-bottom: -60px;
+}
+
+span {
+	color: red;
+	margin-left: 10px;
+}

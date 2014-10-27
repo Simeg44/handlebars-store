@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="wishlist">
+        <h1>Wishlist</h1>
+        <ul id="wishlist"></ul>
+      </div>
+
+      <div id="product-container"></div>
+
+    </div>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+    <script src="product-data.js"></script>
+    <script src="main.js"></script>
+
+    <script id="product-template" type="text/x-handlebars-template">
+      <div class="product">
+        {{#each productsList}}
+          <h2>
+            {{title}}
+            <button type="button" class="btn btn-primary" id="wishlist-add" data-id={{@index}}>Add to Wishlist</button>
+          </h1>
+          <img src={{image}}>
+          {{#if sale}}
+            <p>
+              <em><strike>${{cost}}</strike> <span>SALE: ${{sale}}</span></em>
+            </p>
+          {{else}}
+            <p>
+              <em>${{cost}}</em>
+            </p>
+          {{/if}}
+          <strong>Product Details:</strong>
+          {{#each details}}
+            <ul>
+              <li>{{this}}</li>
+            </ul>
+          {{/each}}
+        {{/each}}
+      </div>
+    </script>
+
+    <script id="wishlist-template" type="text/x-handlebars-template">
+      <li id="wishlist-item">
+        <strong>{{title}}</strong>
+        <button>Remove</button>
+      </li>
+    </script>
+
+  </body>
+</html>
